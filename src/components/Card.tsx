@@ -3,7 +3,7 @@ import type { CardComponentPropsType } from "../types/card.types";
 
 function CardComponent(props: CardComponentPropsType) {
   return (
-    <div className="card-component">
+    <div className="card-component hover-effect">
       <div className="card__item">
         <div className="card__item-top">
           <div className="card__item-top-head">

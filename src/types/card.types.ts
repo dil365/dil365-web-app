@@ -1,5 +1,6 @@
 export type LAWValue = {
-  lang: string,
+  sl: string,
+  tl: string,
   word: string,
   description: string,
   syntactic: 'noun' | 'verb' | 'adjective' | 'adverb' | 'pronoun' | 'preposition' | 'conjunction' | 'interjection'

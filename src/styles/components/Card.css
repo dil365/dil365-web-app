@@ -4,10 +4,10 @@
   border: 1px solid #f1f1f1;
   margin: 1rem;
   transition-duration: .2s;
-  box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+  box-shadow: var(--box-shadow-1);
 }
 .card-component:hover {
-  border: 0.3rem solid var(--color-law-card);
+  box-shadow: var(--box-shadow-2);
 }
 .card-component > .card__item {
   background-color: var(--color-white);

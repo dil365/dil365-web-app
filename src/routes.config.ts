@@ -5,6 +5,7 @@ import AboutPage from "./pages/About";
 import DefaultLayout from "./layouts/default";
 import LoginPage from "./pages/Login";
 import AuthLayout from "./layouts/auth";
+import RegisterPage from "./pages/Register";
 
 export const availableRoutes = {
   home: {
@@ -24,19 +25,26 @@ export const availableRoutes = {
     },
   },
   about: {
-    path: "about",
+    path: "/about",
     layout: null,
     Component: AboutPage,
     action: () => { },
     loader: () => { },
   },
   login: {
-    path: "login",
+    path: "/login",
     layout: AuthLayout,
     Component: LoginPage,
     action: () => { },
     loader: () => { },
-  }
+  },
+  register: {
+    path: "/register",
+    layout: AuthLayout,
+    Component: RegisterPage,
+    action: () => { },
+    loader: () => { },
+  },
 }
 
 const browserRouteItems = Object.entries(availableRoutes).map(([key, value]) => {
