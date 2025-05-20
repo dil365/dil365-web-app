@@ -1,0 +1,23 @@
+#auth-layout {
+  width: 100dvw;
+  height: 100dvh;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+#auth-layout>.auth-layout__left,
+#auth-layout>.auth-layout__right {
+  width: 50%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#auth-layout>.auth-layout__left {}
+
+#auth-layout>.auth-layout__left>.auth-layout_logo-area {}
+
+#auth-layout>.auth-layout__right {}
