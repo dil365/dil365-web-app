@@ -1,0 +1,19 @@
+:root {
+  /* Colors */
+  --color-primary: #448628;
+  --color-primary-hover: #448628b1;
+  --color-secondary: #FFFF00;
+  --color-secondary-hover: #ffff00af;
+  --color-white: #fff;
+  --color-white-hover: #f5f5f5;
+  --color-white-broke: #aaa;
+  --color-black: #111;
+  --color-black-hover: #252525;
+  --color-black-broke: #272727;
+  --color-law-card: var(--color-primary);
+
+  /* Shadows */
+  --box-shadow-1: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  --box-shadow-2: 0px 0px 15px -3px rgba(0, 0, 0, 0.1);
+  --box-shadow-3: 0px 0px 10px -3px rgba(0, 0, 0, 0.1);
+}

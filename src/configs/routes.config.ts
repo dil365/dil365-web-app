@@ -1,11 +1,11 @@
 import { createBrowserRouter } from "react-router";
 
-import HomePage from "./pages/Home";
-import AboutPage from "./pages/About";
-import DefaultLayout from "./layouts/default";
-import LoginPage from "./pages/Login";
-import AuthLayout from "./layouts/auth";
-import RegisterPage from "./pages/Register";
+import HomePage from "../pages/Home";
+import AboutPage from "../pages/About";
+import DefaultLayout from "../layouts/default";
+import LoginPage from "../pages/Login";
+import AuthLayout from "../layouts/auth";
+import RegisterPage from "../pages/Register";
 
 export const availableRoutes = {
   home: {

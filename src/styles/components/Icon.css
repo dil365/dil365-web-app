@@ -1,0 +1,11 @@
+span {
+    position: relative;
+    svg {
+        position: relative;
+        top: 3px;
+        color: var(--color-text-third);
+        &:hover {
+            color: var(--color-text-primary);
+        }
+    }
+}

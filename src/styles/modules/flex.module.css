@@ -1,0 +1,121 @@
+
+.flex-column-between-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-row-between-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-column-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.flex-row-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+.flex-column-start-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-row-start-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+}
+.flex-column-end-center {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-row-end-center {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+}
+.flex-column-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+.flex-column-no-wrap {
+  display: flex;
+  flex-wrap: nowrap;
+}
+.flex-column-align-start {
+  display: flex;
+  align-items: flex-start;
+}
+.flex-column-align-end {
+  display: flex;
+  align-items: flex-end;
+}
+.flex-column-justify-start {
+  display: flex;
+  justify-content: flex-start;
+}
+.flex-column-justify-end {
+  display: flex;
+  justify-content: flex-end;
+}
+.flex-column-space-around {
+  display: flex;
+  justify-content: space-around;
+}
+.flex-column-space-evenly {
+  display: flex;
+  justify-content: space-evenly;
+}
+.flex-column-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+}
+.flex-column-no-wrap {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+.flex-column-align-start {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.flex-column-align-end {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.flex-column-justify-start {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+}
+.flex-column-justify-end {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+.flex-column-space-around {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+.flex-column-space-evenly {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}

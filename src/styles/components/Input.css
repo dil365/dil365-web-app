@@ -1,0 +1,61 @@
+:root {
+  --input-border-width: 1px;
+  --input-padding-y: 0.7rem;
+  --input-padding-x: 0.5rem;
+}
+
+.input-component {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+
+  * {
+    transition-duration: 0.3s;
+  }
+
+  label.label__input-component {
+    font-size: 0.8rem;
+    color: var(--color-text-third);
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 0.1rem;
+    .focus-in > & {
+      color: var(--color-text-primary);
+    }
+  }
+  
+  .container__input-component {
+    display: flex;
+    align-items: center;
+    gap: .5rem;
+    border: var(--input-border-width) solid var(--color-texture-third);
+    border-radius: var(--default-border-radius);
+    background-color: var(--color-white);
+    .focus-in > & {
+      border-color: var(--color-text-primary);
+    }
+
+    input.input__input-component {
+      border: none;
+      border-radius: var(--default-border-radius);
+      padding: var(--input-padding-y) var(--input-padding-x);
+      width: calc(
+        100% - (var(--input-padding-x) * 2) - (var(--input-border-width) * 2)
+      );
+      outline: none;
+      background-color: transparent;
+      color: var(--color-black);
+    }
+    button.visibility__input-component {
+      width: 1rem;
+      height: 2.5rem;;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border: none;
+      background-color: transparent;
+    }
+  }
+}
