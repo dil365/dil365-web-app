@@ -6,6 +6,7 @@ import DefaultLayout from "../layouts/default";
 import LoginPage from "../pages/Login";
 import AuthLayout from "../layouts/auth";
 import RegisterPage from "../pages/Register";
+import LabPage from "../pages/Lab";
 
 export const availableRoutes = {
   home: {
@@ -18,7 +19,7 @@ export const availableRoutes = {
         const clapsit = await fetch("https://clapsit.com/api/v1/aim/json_generator/674");
         const data = await clapsit.json();
         return data;
-      } catch (error) { 
+      } catch (error) {
         console.error("Error fetching data:", error);
         throw error;
       }
@@ -42,6 +43,13 @@ export const availableRoutes = {
     path: "/register",
     layout: AuthLayout,
     Component: RegisterPage,
+    action: () => { },
+    loader: () => { },
+  },
+  lab: {
+    path: "/lab",
+    layout: null,
+    Component: LabPage,
     action: () => { },
     loader: () => { },
   },
