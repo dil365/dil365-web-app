@@ -6,7 +6,7 @@ export default {
   "color-white": "#fff",
   "color-white-hover": "#f5f5f5",
   "color-white-broke": "#aaa",
-  "color-black": "#111",
-  "color-black-hover": "#252525",
+  "color-black": "#12181b",
+  "color-black-hover": "#263238",
   "color-black-broke": "#272727",
 }
