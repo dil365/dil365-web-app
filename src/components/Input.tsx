@@ -33,6 +33,7 @@ function InputComponent(props: InputComponentPropsType) {
           max={props.max}
           onFocus={() => setInputFocus(true)}
           onBlur={() => setInputFocus(false)}
+          onChange={(e) => props.bridge(e.target.value)}
           disabled={props.disabled} />
         {
         props.type === "password" &&

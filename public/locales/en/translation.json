@@ -1,4 +1,38 @@
 {
-  "welcome": "Welcome to my app!",
-  "greeting": "Hello, {{name}}!"
+  "pages": {
+    "register": {
+      "title": "Register",
+      "description": "Create a new account and start your journey to easily learn new words",
+      "headline1": "Register for an account",
+      "headline2": "Please provide your information to complete the registration process!",
+      "form": {
+        "first_name": "First Name",
+        "first_name_desc": "Enter your first name",
+        "last_name": "Last Name",
+        "last_name_desc": "Enter your last name",
+        "email": "Email",
+        "email_desc": "Enter your email address",
+        "password": "Password",
+        "password_desc": "Create a secure password",
+        "birth_date": "Birth Date",
+        "birth_date_desc": "Enter your birth date",
+        "create_account": "Create Account",
+        "already_have_account": "Already have an account?"
+      }
+    },
+    "login": {
+      "title": "Login",
+      "description": "Log in to your account and explore a new world of language learning",
+      "headline1": "Log in to your account",
+      "headline2": "Welcome back! Please enter your details:",
+      "form": {
+        "email": "Email",
+        "email_desc": "Enter your email address",
+        "password": "Password",
+        "password_desc": "Enter your password",
+        "create_account": "Register",
+        "login": "Log in"
+      }
+    }
+  }
 }

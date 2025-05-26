@@ -1,4 +1,38 @@
 {
-  "welcome": "Xoş gəldiniz!",
-  "greeting": "Salam, {{name}}!"
+  "pages": {
+    "register": {
+      "title": "Qeydiyyat",
+      "description": "Yeni hesab yaradın və yeni sözləri asanlıqla öyrənməyə başlayın",
+      "headline1": "Hesaba qeydiyyat",
+      "headline2": "Zəhmət olmasa, özünüz haqqında məlumatları təqdim edin və qeydiyyat prosesini tamamlayın!",
+      "form": {
+        "first_name": "Ad",
+        "first_name_desc": "Adınızı daxil edin",
+        "last_name": "Soyad",
+        "last_name_desc": "Soyadınızı daxil edin",
+        "email": "E-poçt",
+        "email_desc": "E-poçt ünvanınızı daxil edin",
+        "password": "Şifrə",
+        "password_desc": "Təhlükəsiz şifrə yaradın",
+        "birth_date": "Doğum tarixi",
+        "birth_date_desc": "Doğum tarixinizi daxil edin",
+        "create_account": "Hesab Yarat",
+        "already_have_account": "Mövcut bir hesabınız var?"
+      }
+    },
+    "login": {
+      "title": "Daxil ol",
+      "description": "Hesabınıza daxil olun və yeni dil öyrənmə dünyasını kəşf edin",
+      "headline1": "Hesaba daxil ol",
+      "headline2": "Xoş gəldiniz! Zəhmət olmasa, məlumatlarınızı daxil edin:",
+      "form": {
+        "email": "E-poçt",
+        "email_desc": "E-poçt ünvanınızı daxil edin",
+        "password": "Şifrə",
+        "password_desc": "Şifrənizi daxil edin",
+        "create_account": "Qeydiyyat",
+        "login": "Daxil ol"
+      }
+    }
+  }
 }

@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "register": {
+      "title": "Registrarse",
+      "description": "Crea una nueva cuenta y comienza tu viaje para aprender nuevas palabras fácilmente",
+      "headline1": "Regístrate para una cuenta",
+      "headline2": "¡Por favor, proporciona tus datos para completar el proceso de registro!",
+      "form": {
+        "first_name": "Nombre",
+        "first_name_desc": "Ingresa tu nombre",
+        "last_name": "Apellido",
+        "last_name_desc": "Ingresa tu apellido",
+        "email": "Correo electrónico",
+        "email_desc": "Ingresa tu dirección de correo electrónico",
+        "password": "Contraseña",
+        "password_desc": "Crea una contraseña segura",
+        "birth_date": "Fecha de nacimiento",
+        "birth_date_desc": "Ingresa tu fecha de nacimiento",
+        "create_account": "Crear cuenta",
+        "already_have_account": "¿Ya tienes una cuenta?"
+      }
+    },
+    "login": {
+      "title": "Iniciar sesión",
+      "description": "Inicia sesión en tu cuenta y explora un nuevo mundo de aprendizaje de idiomas",
+      "headline1": "Inicia sesión en tu cuenta",
+      "headline2": "¡Bienvenido de nuevo! Por favor, ingresa tus datos:",
+      "form": {
+        "email": "Correo electrónico",
+        "email_desc": "Ingresa tu dirección de correo electrónico",
+        "password": "Contraseña",
+        "password_desc": "Ingresa tu contraseña",
+        "create_account": "Registrarse",
+        "login": "Iniciar sesión"
+      }
+    }
+  }
+}

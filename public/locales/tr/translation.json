@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "register": {
+      "title": "Kayıt Ol",
+      "description": "Yeni bir hesap oluşturun ve yeni kelimeleri kolayca öğrenmeye başlayın",
+      "headline1": "Hesap için Kayıt Ol",
+      "headline2": "Lütfen kendinizle ilgili bilgileri sağlayın ve kayıt işlemini tamamlayın!",
+      "form": {
+        "first_name": "Ad",
+        "first_name_desc": "Adınızı girin",
+        "last_name": "Soyad",
+        "last_name_desc": "Soyadınızı girin",
+        "email": "E-posta",
+        "email_desc": "E-posta adresinizi girin",
+        "password": "Şifre",
+        "password_desc": "Güvenli bir şifre oluşturun",
+        "birth_date": "Doğum Tarihi",
+        "birth_date_desc": "Doğum tarihinizi girin",
+        "create_account": "Hesap Oluştur",
+        "already_have_account": "Zaten bir hesabınız var mı?"
+      }
+    },
+    "login": {
+      "title": "Giriş Yap",
+      "description": "Hesabınıza giriş yapın ve dil öğreniminin yeni dünyasını keşfedin",
+      "headline1": "Hesabınıza Giriş Yapın",
+      "headline2": "Tekrar hoş geldiniz! Lütfen bilgilerinizi girin:",
+      "form": {
+        "email": "E-posta",
+        "email_desc": "E-posta adresinizi girin",
+        "password": "Şifre",
+        "password_desc": "Şifrenizi girin",
+        "create_account": "Kayıt Ol",
+        "login": "Giriş Yap"
+      }
+    }
+  }
+}

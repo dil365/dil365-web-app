@@ -1,0 +1,38 @@
+{
+  "pages": {
+    "register": {
+      "title": "Inscription",
+      "description": "Créez un nouveau compte et commencez votre voyage pour apprendre facilement de nouveaux mots",
+      "headline1": "Inscrivez-vous pour un compte",
+      "headline2": "Veuillez fournir vos informations pour compléter le processus d'inscription !",
+      "form": {
+        "first_name": "Prénom",
+        "first_name_desc": "Entrez votre prénom",
+        "last_name": "Nom de famille",
+        "last_name_desc": "Entrez votre nom de famille",
+        "email": "Email",
+        "email_desc": "Entrez votre adresse email",
+        "password": "Mot de passe",
+        "password_desc": "Créez un mot de passe sécurisé",
+        "birth_date": "Date de naissance",
+        "birth_date_desc": "Entrez votre date de naissance",
+        "create_account": "Créer un compte",
+        "already_have_account": "Vous avez déjà un compte ?"
+      }
+    },
+    "login": {
+      "title": "Connexion",
+      "description": "Connectez-vous à votre compte et découvrez un nouveau monde d'apprentissage linguistique",
+      "headline1": "Connectez-vous à votre compte",
+      "headline2": "Bon retour ! Veuillez entrer vos informations :",
+      "form": {
+        "email": "Email",
+        "email_desc": "Entrez votre adresse email",
+        "password": "Mot de passe",
+        "password_desc": "Entrez votre mot de passe",
+        "create_account": "S'inscrire",
+        "login": "Se connecter"
+      }
+    }
+  }
+}

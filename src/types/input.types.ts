@@ -76,4 +76,5 @@ export type InputComponentPropsType = {
     min?: string | number;
     max?: string | number;
     icon?: IconsTypes;
+    bridge: (value: string | number | boolean | Date) => void;
 }

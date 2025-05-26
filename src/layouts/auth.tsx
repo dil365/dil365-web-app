@@ -1,3 +1,5 @@
+import VectorComponent from '../components/Vector';
+import colors from '../constants/colors';
 import '../styles/layouts/auth.css';
 function AuthLayout({ children }) {
 
@@ -9,7 +11,7 @@ function AuthLayout({ children }) {
         </main>
       </div>
       <div className="auth-layout__right">
-        <div id="auth-banner"></div>
+          <VectorComponent vector="team" color={colors['color-primary']}/>
       </div>
     </div>
   );
