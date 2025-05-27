@@ -1,11 +1,15 @@
 import "../styles/pages/Register.css";
 import flex from "../styles/modules/flex.module.css";
+import logo from "../assets/logo.svg";
 import InputComponent from "../components/Input";
 import { useNavigate } from "react-router";
 import { availableRoutes } from "../configs/routes.config";
-import { useState, type FormEvent } from "react";
-import logo from "../assets/logo.svg";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from 'react-redux';
+import { setFormValue } from "../store/registerSlice";
+import type { FormEvent } from "react";
+import { _UsersService } from "../services/users";
+import type { RegisterFormType } from "../types/auth.types";
 
 function RegisterPage() {
   const navigate = useNavigate();
@@ -15,19 +19,6 @@ function RegisterPage() {
     navigate(availableRoutes.login.path);
   }
 
-  const [formValue, setFormValue] = useState({
-    first_name: '',
-    last_name: '',
-    email: '',
-    password: '',
-    birthdate: ''
-  });
-
-  const handleSubmit = (event: FormEvent) => {
-    event.preventDefault();
-    console.log('Form submitted with value:', formValue);
-  };
-
   const maxDateValue = () => {
     const minAcceptableAge = 10;
     const today = new Date();
@@ -36,6 +27,15 @@ function RegisterPage() {
     const day = String(today.getDate()).padStart(2, '0');
     return `${year}-${month}-${day}`;
   };
+
+  const dispatch = useDispatch();
+  const form: RegisterFormType = useSelector((state: {register: RegisterFormType}) => state.register);
+
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
+    event.preventDefault();
+    const response = await _UsersService.register.POST(form);
+    console.log(response);
+  }
 
   return (
     <div id="register-page">
@@ -52,10 +52,10 @@ function RegisterPage() {
           </div>
         </div>
 
-        <form className="register__form-area" onSubmit={handleSubmit}>
+        <form className="register__form-area" onSubmit={(event) => handleSubmit(event)}>
           <div style={{ gap: ".5rem" }} className={flex["flex-row-center"]}>
             <InputComponent
-              bridge={(value) => { setFormValue({ ...formValue, first_name: value.toString() }) }}
+              bridge={(value) => { dispatch(setFormValue({ key: 'first_name', value })) }}
               label={t('pages.register.form.first_name')}
               title={t('pages.register.form.first_name_desc')}
               type="text"
@@ -65,7 +65,7 @@ function RegisterPage() {
               required
               placeholder="John" />
             <InputComponent
-              bridge={(value) => { setFormValue({ ...formValue, last_name: value.toString() }) }}
+              bridge={(value) => { dispatch(setFormValue({ key: 'last_name', value })) }}
               label={t('pages.register.form.last_name')}
               title={t('pages.register.form.last_name_desc')}
               type="text"
@@ -76,7 +76,7 @@ function RegisterPage() {
               placeholder="Doe" />
           </div>
           <InputComponent
-            bridge={(value) => { setFormValue({ ...formValue, email: value.toString() }) }}
+            bridge={(value) => { dispatch(setFormValue({ key: 'email', value })) }}
             label={t('pages.register.form.email')}
             title={t('pages.register.form.email_desc')}
             type="email"
@@ -86,7 +86,7 @@ function RegisterPage() {
             required
             placeholder="johndoe@email.com" />
           <InputComponent
-            bridge={(value) => { setFormValue({ ...formValue, password: value.toString() }) }}
+            bridge={(value) => { dispatch(setFormValue({ key: 'password', value })) }}
             label={t('pages.register.form.password')}
             title={t('pages.register.form.password_desc')}
             name="password"
@@ -96,7 +96,7 @@ function RegisterPage() {
             required
             type="password" />
           <InputComponent
-            bridge={(value) => { setFormValue({ ...formValue, birthdate: value.toString() }) }}
+            bridge={(value) => { dispatch(setFormValue({ key: 'birthdate', value })) }}
             label={t('pages.register.form.birth_date')}
             title={t('pages.register.form.birth_date_desc')}
             name="Date"

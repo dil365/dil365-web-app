@@ -1,31 +1,32 @@
 import "../styles/pages/Login.css";
 import flex from "../styles/modules/flex.module.css";
+import logo from "../assets/logo.svg";
 import InputComponent from "../components/Input";
 import { useNavigate } from "react-router";
 import { availableRoutes } from "../configs/routes.config";
-import { useState, type FormEvent } from "react";
-import logo from "../assets/logo.svg";
 import { useTranslation } from "react-i18next";
+import { useDispatch, useSelector } from 'react-redux';
+import { setFormValue } from "../store/loginSlice";
+import type { FormEvent } from "react";
+import { _UsersService } from "../services/users";
+import type { LoginFormType } from "../types/auth.types";
 
 function LoginPage() {
   const navigate = useNavigate();
   const { t } = useTranslation();
 
-  const goToLoginPage = () => {
+  const goToRegisterPage = () => {
     navigate(availableRoutes.register.path);
   }
 
-  const [formValue, setFormValue] = useState({
-    email: '',
-    password: '',
-  });
+  const dispatch = useDispatch();
+  const form: LoginFormType = useSelector((state: {login: LoginFormType}) => state.login);
 
-  const handleSubmit = (event: FormEvent) => {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    console.log('Form submitted with value:', formValue);
-  };
-
-
+    const response = await _UsersService.login.POST(form);
+    console.log(response);
+  }
   return (
     <div id="login-page">
       <div className="login__page-container">
@@ -41,9 +42,9 @@ function LoginPage() {
           </div>
         </div>
 
-        <form className="login__form-area" onSubmit={handleSubmit}>
+        <form className="login__form-area" onSubmit={(event) => handleSubmit(event)}>
           <InputComponent
-            bridge={(value) => { setFormValue({ ...formValue, email: value.toString() }) }}
+            bridge={(value) => { dispatch(setFormValue({key: 'email', value})) }}
             label={t('pages.login.form.email')}
             title={t('pages.login.form.email_desc')}
             type="email"
@@ -53,7 +54,7 @@ function LoginPage() {
             required
             placeholder="johndoe@email.com" />
           <InputComponent
-            bridge={(value) => { setFormValue({ ...formValue, password: value.toString() }) }}
+            bridge={(value) => { dispatch(setFormValue({key: 'password', value})) }}
             label={t('pages.login.form.password')}
             title={t('pages.login.form.password_desc')}
             name="password"
@@ -69,7 +70,7 @@ function LoginPage() {
           <button
             type="button"
             className="btn__login-account"
-            onClick={goToLoginPage}>{t('pages.login.form.create_account')}</button>
+            onClick={goToRegisterPage}>{t('pages.login.form.create_account')}</button>
         </form>
 
       </div>
