@@ -32,20 +32,6 @@ api.interceptors.request.use(
 api.interceptors.response.use(
   (response) => response,
   (error) => {
-    if (error.response) {
-      const { status, data } = error.response;
-      if (status === 401) {
-        console.error('Unauthorized, redirecting to login...');
-      } else if (status === 404) {
-        console.error('Resource not found');
-      } else {
-        console.error('Server error:', data.message || 'Unknown error');
-      }
-    } else if (error.request) {
-      console.error('No response from server. Check your network.');
-    } else {
-      console.error('Request setup error:', error.message);
-    }
     return Promise.reject(error);
   }
 );
@@ -53,8 +39,8 @@ api.interceptors.response.use(
 /* API Methods */
 export const $get = async (endpoint: string, params = {}) => {
   try {
-    const response = await api.get(endpoint, { params }); 
-    return response.data;
+    const response = await api.get(endpoint, { params });
+    return response;
   } catch (error) {
     throw error;
   }
@@ -63,7 +49,7 @@ export const $get = async (endpoint: string, params = {}) => {
 export const $post = async (endpoint: string, payload = {}) => {
   try {
     const response = await api.post(endpoint, payload);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }
@@ -72,7 +58,7 @@ export const $post = async (endpoint: string, payload = {}) => {
 export const $put = async (endpoint: string, payload = {}) => {
   try {
     const response = await api.put(endpoint, payload);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }
@@ -81,7 +67,7 @@ export const $put = async (endpoint: string, payload = {}) => {
 export const $patch = async (endpoint: string, payload = {}) => {
   try {
     const response = await api.patch(endpoint, payload);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }
@@ -90,7 +76,7 @@ export const $patch = async (endpoint: string, payload = {}) => {
 export const $delete = async (endpoint: string) => {
   try {
     const response = await api.delete(endpoint);
-    return response.data;
+    return response;
   } catch (error) {
     throw error;
   }

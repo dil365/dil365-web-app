@@ -29,12 +29,13 @@ function RegisterPage() {
   };
 
   const dispatch = useDispatch();
-  const form: RegisterFormType = useSelector((state: {register: RegisterFormType}) => state.register);
+  const form: RegisterFormType = useSelector((state: { register: RegisterFormType }) => state.register);
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const response = await _UsersService.register.POST(form);
-    console.log(response);
+    await _UsersService.register.POST(form).then(() => {
+      goToLoginPage()
+    });
   }
 
   return (

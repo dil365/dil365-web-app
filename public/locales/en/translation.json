@@ -1,4 +1,6 @@
 {
+  "done": "Done",
+  "error": "Error",
   "pages": {
     "register": {
       "title": "Register",
@@ -34,5 +36,9 @@
         "login": "Log in"
       }
     }
+  },
+  "error_messages": {
+    "something_went_wrong": "Something went wrong!",
+    "wrong_credentials": "Email or password is wrong!"
   }
 }

@@ -7,11 +7,16 @@ import { availableRoutes } from "../configs/routes.config";
 import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from 'react-redux';
 import { setFormValue } from "../store/loginSlice";
-import type { FormEvent } from "react";
+import { useState, type FormEvent } from "react";
 import { _UsersService } from "../services/users";
 import type { LoginFormType } from "../types/auth.types";
+import { setToken } from "../store/authSlice";
+import MessageBox from "../components/MessageBox";
+
 
 function LoginPage() {
+  const dispatch = useDispatch();
+  const [status, setStatus] = useState(null as number | null);
   const navigate = useNavigate();
   const { t } = useTranslation();
 
@@ -19,14 +24,31 @@ function LoginPage() {
     navigate(availableRoutes.register.path);
   }
 
-  const dispatch = useDispatch();
-  const form: LoginFormType = useSelector((state: {login: LoginFormType}) => state.login);
+  const form: LoginFormType = useSelector((state: { login: LoginFormType }) => state.login);
+  const getMessageByStatus = (status: number) => {
+    switch (status) {
+      case 403:
+        return t('error_messages.wrong_credentials');
+      default:
+        return t('error_messages.something_went_wrong');
+    }
+  }
+
+
 
   async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
-    const response = await _UsersService.login.POST(form);
-    console.log(response);
+    setStatus(null);
+    await _UsersService.login.POST(form).then(response => {
+      if (response.data.token) {
+        dispatch(setToken({ token: response.data.token }));
+        navigate(availableRoutes.home.path);
+      }
+    }).catch((error) => {
+      setStatus(error.response.status);
+    });
   }
+
   return (
     <div id="login-page">
       <div className="login__page-container">
@@ -41,10 +63,18 @@ function LoginPage() {
             <div></div>
           </div>
         </div>
+        {
+          status ?
+            <MessageBox
+              label={t('error')}
+              message={getMessageByStatus(status!)}
+              type="error"/>
+            : ""
+        }
 
         <form className="login__form-area" onSubmit={(event) => handleSubmit(event)}>
           <InputComponent
-            bridge={(value) => { dispatch(setFormValue({key: 'email', value})) }}
+            bridge={(value) => { dispatch(setFormValue({ key: 'email', value })) }}
             label={t('pages.login.form.email')}
             title={t('pages.login.form.email_desc')}
             type="email"
@@ -54,13 +84,13 @@ function LoginPage() {
             required
             placeholder="johndoe@email.com" />
           <InputComponent
-            bridge={(value) => { dispatch(setFormValue({key: 'password', value})) }}
+            bridge={(value) => { dispatch(setFormValue({ key: 'password', value })) }}
             label={t('pages.login.form.password')}
             title={t('pages.login.form.password_desc')}
             name="password"
             autocomplete="current-password"
             placeholder="•••••••••"
-            icon="lock_open"
+            icon="lock"
             required
             type="password" />
           <br />

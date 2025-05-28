@@ -18,7 +18,7 @@ function IconComponent(props: IconComponentPropsType = IconComponentPropsDefault
         elementIconSVG.style.height = props.size!;
         elementIconSVG.style.color = props.color!;
     }
-    return <span dangerouslySetInnerHTML={{ __html: elementIconSVG.outerHTML }} />;
+    return <div className="icon__element-custom" dangerouslySetInnerHTML={{ __html: elementIconSVG.outerHTML }} />;
 }
 
 export default IconComponent;

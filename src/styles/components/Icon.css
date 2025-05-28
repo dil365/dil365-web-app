@@ -1,8 +1,8 @@
-span {
-    position: relative;
+div.icon__element-custom {
+    display: flex;
+    align-items: center;
+    justify-content: center;
     svg {
-        position: relative;
-        top: 3px;
         color: var(--color-text-third);
         &:hover {
             color: var(--color-text-primary);

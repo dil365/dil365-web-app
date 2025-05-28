@@ -13,7 +13,42 @@ export const availableRoutes = {
     path: '/',
     layout: DefaultLayout,
     Component: HomePage,
+    action: () => {},
+    middleware: () => {
+      
+    },
+    loader: async () => {},
+  },
+  about: {
+    path: "/about",
+    layout: null,
+    Component: AboutPage,
     action: () => { },
+    middleware: () => { },
+    loader: () => { },
+  },
+  login: {
+    path: "/login",
+    layout: AuthLayout,
+    Component: LoginPage,
+    action: () => { },
+    middleware: () => { },
+    loader: () => { },
+  },
+  register: {
+    path: "/register",
+    layout: AuthLayout,
+    Component: RegisterPage,
+    action: () => { },
+    middleware: () => { },
+    loader: () => { },
+  },
+  lab: {
+    path: "/lab",
+    layout: null,
+    Component: LabPage,
+    action: () => { },
+    middleware: () => { },
     loader: async () => {
       try {
         const clapsit = await fetch("https://clapsit.com/api/v1/aim/json_generator/674");
@@ -25,42 +60,18 @@ export const availableRoutes = {
       }
     },
   },
-  about: {
-    path: "/about",
-    layout: null,
-    Component: AboutPage,
-    action: () => { },
-    loader: () => { },
-  },
-  login: {
-    path: "/login",
-    layout: AuthLayout,
-    Component: LoginPage,
-    action: () => { },
-    loader: () => { },
-  },
-  register: {
-    path: "/register",
-    layout: AuthLayout,
-    Component: RegisterPage,
-    action: () => { },
-    loader: () => { },
-  },
-  lab: {
-    path: "/lab",
-    layout: null,
-    Component: LabPage,
-    action: () => { },
-    loader: () => { },
-  },
 }
 
 const browserRouteItems = Object.entries(availableRoutes).map(([key, value]) => {
+  if (value.middleware) {
+    value.middleware();
+  }
   const item = {
     key,
     path: value.path,
     Component: value.Component,
     action: () => { },
+    middleware: () => { },
     loader: () => { },
   }
   if (value.layout) {
