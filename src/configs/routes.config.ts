@@ -7,22 +7,25 @@ import LoginPage from "../pages/Login";
 import AuthLayout from "../layouts/auth";
 import RegisterPage from "../pages/Register";
 import LabPage from "../pages/Lab";
+import Guard from "../components/Guard";
+import checkAuth from "../utils/checkAuth";
 
 export const availableRoutes = {
   home: {
     path: '/',
     layout: DefaultLayout,
     Component: HomePage,
-    action: () => {},
+    auth: true,
+    action: () => { },
     middleware: () => {
-      
     },
-    loader: async () => {},
+    loader: async () => { },
   },
   about: {
     path: "/about",
     layout: null,
     Component: AboutPage,
+    auth: false,
     action: () => { },
     middleware: () => { },
     loader: () => { },
@@ -31,22 +34,33 @@ export const availableRoutes = {
     path: "/login",
     layout: AuthLayout,
     Component: LoginPage,
+    auth: false,
     action: () => { },
-    middleware: () => { },
+    middleware: async () => {
+      await checkAuth()
+        .then(() => { window.location.href = availableRoutes.home.path })
+        .catch(() => true)
+    },
     loader: () => { },
   },
   register: {
     path: "/register",
     layout: AuthLayout,
     Component: RegisterPage,
+    auth: false,
     action: () => { },
-    middleware: () => { },
+    middleware: async () => {
+      await checkAuth()
+        .then(() => { window.location.href = availableRoutes.home.path })
+        .catch(() => true)
+    },
     loader: () => { },
   },
   lab: {
     path: "/lab",
     layout: null,
     Component: LabPage,
+    auth: true,
     action: () => { },
     middleware: () => { },
     loader: async () => {
@@ -63,25 +77,33 @@ export const availableRoutes = {
 }
 
 const browserRouteItems = Object.entries(availableRoutes).map(([key, value]) => {
-  if (value.middleware) {
-    value.middleware();
-  }
   const item = {
     key,
     path: value.path,
     Component: value.Component,
     action: () => { },
-    middleware: () => { },
     loader: () => { },
   }
+  if (value.action) { item.action = value.action }
+  if (value.loader) { item.loader = value.loader }
   if (value.layout) {
-    item.Component = () => value.layout({ children: value.Component() });
-  }
-  if (value.action) {
-    item.action = value.action;
-  }
-  if (value.loader) {
-    item.loader = value.loader;
+    item.Component = () => Guard({
+      config: {
+        path: value.path,
+        isAuthRequired: !!value.auth,
+        middleware: value.middleware
+      },
+      children: value.layout({ children: value.Component() })
+    });
+  } else {
+    item.Component = () => Guard({
+      config: {
+        path: value.path,
+        isAuthRequired: !!value.auth,
+        middleware: value.middleware
+      },
+      children: value.Component()
+    })
   }
 
   return item;

@@ -41,7 +41,7 @@ function RegisterPage() {
   return (
     <div id="register-page">
       <div className="register__page-container">
-        <img src={logo} />
+        <img src={logo} onClick={() => navigate(availableRoutes.home.path)} />
 
         <div className="register__page-head">
           <div className={flex["flex-row-between-center"]}>

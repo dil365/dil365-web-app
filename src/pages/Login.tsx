@@ -52,7 +52,7 @@ function LoginPage() {
   return (
     <div id="login-page">
       <div className="login__page-container">
-        <img src={logo} />
+        <img src={logo} onClick={() => navigate(availableRoutes.home.path)} />
 
         <div className="login__page-head">
           <div className={flex["flex-row-between-center"]}>
@@ -68,7 +68,7 @@ function LoginPage() {
             <MessageBox
               label={t('error')}
               message={getMessageByStatus(status!)}
-              type="error"/>
+              type="error" />
             : ""
         }
 
